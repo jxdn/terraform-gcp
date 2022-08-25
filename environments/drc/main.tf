@@ -1,7 +1,7 @@
 
 
 locals {
-  env = "prod"
+  env = "drc"
 }
 
 provider "google" {
