@@ -7,8 +7,8 @@ module "add_subnet_to_network" {
 
   subnets = [
     {
-      subnet_name   = "${subnet_name_value}"
-      subnet_ip     = "${subnet_ip_value}"
+      subnet_name   = "${var.subnet_name_value}"
+      subnet_ip     = "${var.subnet_ip_value}"
       subnet_region = "${var.region}"
     },
   ]
