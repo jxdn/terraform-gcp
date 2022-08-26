@@ -1,8 +1,8 @@
 
 output "network" {
-  value = "${module.vpc.network_name}"
+  value = "${module.add_subnet_to_network.network_name}"
 }
 
 output "subnet" {
-  value = "${element(module.vpc.subnets_names, 0)}"
+  value = "${element(module.add_subnet_to_network.subnets_names, 0)}"
 }
