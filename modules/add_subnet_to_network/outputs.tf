@@ -1,8 +1,9 @@
-
-output "network" {
-  value = "${module.add_subnet_to_network.network_name}"
+output "gateway_address" {
+  value       = "${google_compute_subnetwork.new_subnetwork.gateway_address}"
+  description = "The IP address of the gateway."
 }
 
-output "subnet" {
-  value = "${element(module.add_subnet_to_network.subnets_names, 0)}"
+output "self_link" {
+  value       = "${google_compute_subnetwork.new_subnetwork.self_link}"
+  description = "The URL of the created resource"
 }
