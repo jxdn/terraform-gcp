@@ -2,9 +2,7 @@
 #define environment
 locals {
   ##used for vpc name
-
   env = "drc"
-
 }
 
 ##define provider and region
@@ -22,13 +20,16 @@ module "vpc" {
 }
 
 
-# create subnet work for 172.31.100.0/24
+
+# create subnet for all the subnetwork listed
+
 module "add_subnet_to_network" {
+   for_each = var.network_name_and_cidr
    source = "../../modules/add_subnet_to_network"
    env = "${local.env}"
-   subnet_name_value = "test"
-   subnet_ip_value = "172.31.101.0/24"
-}
+   subnet_name_value = each.value.name
+   subnet_ip_value = "${each.value.cidr}/${each.value.prefix}"
 
+}
 
 
